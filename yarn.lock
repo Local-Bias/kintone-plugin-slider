@@ -559,15 +559,15 @@
     os-locale "^5.0.0"
     puppeteer "^21.7.0"
 
-"@kintone/rest-api-client@5.0.8":
-  version "5.0.8"
-  resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-5.0.8.tgz#53b5b8a978f19bb5f1fadcf89672f3e6abdaa193"
-  integrity sha512-6WFY6P/rsF5n246Bgaa7wvn6ByvODWKWOL/m/0zudElcNPSRIi8YjSMoMEoCP2RpGeKD90HOlwaDcyNjBMMbCw==
+"@kintone/rest-api-client@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-5.1.0.tgz#6d3b6f1ead5766a154f047aa5940ed0e18edf0c9"
+  integrity sha512-6/pidc0TKMceCryPRDQ0tIQdKHOp5h3QyePOcsNb9yESuvECODIxeUeILvJQMfQrtzQBnRCjjLcDrOlKgqnSUA==
   dependencies:
     axios "^1.6.7"
     core-js "^3.35.1"
     form-data "^4.0.0"
-    js-base64 "^3.7.6"
+    js-base64 "^3.7.7"
     mime "^3.0.0"
     qs "^6.11.2"
 
@@ -3645,10 +3645,10 @@ jest-worker@^27.4.5:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-js-base64@^3.7.6:
-  version "3.7.6"
-  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-3.7.6.tgz#6ccb5d761b48381fd819f9ce04998866dbcbbc99"
-  integrity sha512-NPrWuHFxFUknr1KqJRDgUQPexQF0uIJWjeT+2KjEePhitQxQEx5EJBG1lVn5/hc8aLycTpXrDOgPQ6Zq+EDiTA==
+js-base64@^3.7.7:
+  version "3.7.7"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-3.7.7.tgz#e51b84bf78fbf5702b9541e2cb7bfcb893b43e79"
+  integrity sha512-7rCnleh0z2CkXhH67J8K1Ytz0b2Y+yxTPL+/KOJoa20hfnVQ/3/T6W/KflYI4bRHRagNeXeU2bkNGI3v1oS/lw==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
