@@ -1,5 +1,4 @@
-import React, { ChangeEventHandler, VFC, VFCX } from 'react';
-import styled from '@emotion/styled';
+import React, { FC } from 'react';
 import { pluginConditionState, valueState } from '../states';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { Slider } from '@mui/material';
@@ -7,13 +6,13 @@ import { Slider } from '@mui/material';
 type ContainerProps = Readonly<{}>;
 type Props = ContainerProps &
   Readonly<{
-    condition: kintone.plugin.Condition;
+    condition: Plugin.Condition;
     value: number;
     onValueChange: (v: number) => void;
   }>;
 
-const Component: VFCX<Props> = ({ className, condition, value, onValueChange }) => (
-  <div {...{ className }}>
+const Component: FC<Props> = ({ condition, value, onValueChange }) => (
+  <div>
     <Slider
       sx={{ width: 200 }}
       value={value}
@@ -27,9 +26,7 @@ const Component: VFCX<Props> = ({ className, condition, value, onValueChange }) 
   </div>
 );
 
-const StyledComponent = styled(Component)``;
-
-const Container: VFC<ContainerProps> = () => {
+const Container: FC<ContainerProps> = () => {
   const condition = useRecoilValue(pluginConditionState);
   const [value, setValue] = useRecoilState(valueState);
 
@@ -37,7 +34,7 @@ const Container: VFC<ContainerProps> = () => {
     setValue(v);
   };
 
-  return condition ? <StyledComponent {...{ condition, value, onValueChange }} /> : null;
+  return condition ? <Component {...{ condition, value, onValueChange }} /> : null;
 };
 
 export default Container;

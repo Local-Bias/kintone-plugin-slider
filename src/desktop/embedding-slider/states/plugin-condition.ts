@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-const state = atom<kintone.plugin.Condition | null>({
+const state = atom<Plugin.Condition | null>({
   key: 'pluginConditionState',
   default: null,
 });

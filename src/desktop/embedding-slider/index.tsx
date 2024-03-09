@@ -1,23 +1,20 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { getFieldId } from '@common/cybozu';
-import { restoreStorage } from '@common/plugin';
 import { css } from '@emotion/css';
-
 import App from './app';
-import { isMobile } from '@common/kintone';
+import { manager } from '@/lib/event-manager';
+import { getMetaFieldId_UNSTABLE, isMobile } from '@konomi-app/kintone-utilities';
+import { restorePluginConfig } from '@/lib/plugin';
+import { createRoot } from 'react-dom/client';
 
-const events: kintone.EventType[] = ['app.record.create.show', 'app.record.edit.show'];
-
-const action: launcher.Action = async (event, pluginId) => {
-  const config = restoreStorage(pluginId);
+manager.add(['app.record.create.show', 'app.record.edit.show'], async (event) => {
+  const config = restorePluginConfig();
 
   for (const condition of config.conditions) {
     if (!condition.field) {
       continue;
     }
 
-    const fieldId = getFieldId(condition.field);
+    const fieldId = getMetaFieldId_UNSTABLE(condition.field);
 
     const wrapper =
       document.querySelector<HTMLDivElement>(`.value-${fieldId} > div`) ||
@@ -54,16 +51,15 @@ const action: launcher.Action = async (event, pluginId) => {
       position: relative;
       padding: 0 32px 0 24px;
     `);
+    const root = createRoot(div);
 
     const fieldValue = event.record[condition.field].value;
 
+    //@ts-expect-error
     const initialValue = isFinite(fieldValue) ? Number(fieldValue) : condition.min;
 
-    render(<App {...{ condition, initialValue }} />, div);
+    root.render(<App {...{ condition, initialValue }} />);
   }
 
-  console.log('プラグインが有効です', { pluginId, event, config });
   return event;
-};
-
-export default { events, action };
+});
