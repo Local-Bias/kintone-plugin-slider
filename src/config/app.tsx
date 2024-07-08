@@ -24,7 +24,7 @@ const Component: FC = () => (
           <Notification />
           <SnackbarProvider maxSnack={1}>
             <Suspense fallback={<LoaderWithLabel label='設定情報を取得しています' />}>
-              <PluginLayout>
+              <PluginLayout className='🐸'>
                 <Sidebar />
                 <PluginContent>
                   <Form />
